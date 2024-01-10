@@ -16,5 +16,6 @@ namespace MVVMProyectoProgramacion.Services
 
         Task<List<Medico>> getMedicos();
 
+        Task<List<Cita>> GetCitas();
     }
 }

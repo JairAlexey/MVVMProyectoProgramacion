@@ -20,8 +20,10 @@
         <ListView x:Name="listaCitas"
                   ItemsSource="{Binding ListCitas}"
                   RowHeight="80"
-                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
                   ItemSelected="{Binding ItemSelectedCommand}">
+
+            <!-- Especifica el modo de enlace. En el enlace de datos bidireccional -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

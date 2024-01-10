@@ -23,6 +23,30 @@ namespace MVVMProyectoProgramacion.Services
             _httpClient.BaseAddress = new Uri(_baseUrl);
         }
 
+        public async Task<List<Cita>> GetCitas()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("/api/Cita");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var citas = JsonConvert.DeserializeObject<List<Cita>>(content);
+                    return citas;
+                }
+                else
+                {
+                    throw new Exception($"Error al obtener citas. StatusCode: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error en GetCitas: {ex.Message}");
+                return null;
+            }
+        }
+
         //Usuario
 
         public async Task<List<User>> getUsuario()
