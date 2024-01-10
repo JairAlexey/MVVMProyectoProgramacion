@@ -1,36 +1,38 @@
 ﻿using MVVMProyectoProgramacion.Models;
+using MVVMProyectoProgramacion.Views;
 using System.Collections.ObjectModel;
 using MVVMProyectoProgramacion.Services;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using Microsoft.Maui.Controls;
 
-namespace MVVMProyectoProgramacion.ViewModel;
-
-public class CitaViewModel
+namespace MVVMProyectoProgramacion.ViewModel
 {
-    private APIService _apiService;
-    public ObservableCollection<Cita> ListCitas { get; private set; }
-
-    public CitaViewModel()
+    public class CitaViewModel
     {
-        _apiService = new APIService(); // Asegúrate de implementar la inyección de dependencias si es necesario
-        ListCitas = new ObservableCollection<Cita>();
-        LoadCitas();
-    }
+        private INavigation _navigation;
+        private APIService _apiService;
 
-    private async void LoadCitas()
-    {
-        int idUsuarioInt = Preferences.Get("idusuario", 0);
-        string idUsuario = idUsuarioInt.ToString();
-        if (idUsuarioInt != 0)
+        public ObservableCollection<Cita> ListCitas { get; private set; }
+        public ICommand NuevaCitaCommand { get; }
+
+        public CitaViewModel(INavigation navigation, APIService apiService)
         {
-            var listaCitas = await _apiService.getCita(idUsuario);
-            if (listaCitas != null)
-            {
-                foreach (var cita in listaCitas)
-                {
-                    ListCitas.Add(cita);
-                }
-            }
+            _navigation = navigation;
+            _apiService = apiService;
+            ListCitas = new ObservableCollection<Cita>();
+            LoadCitas();
+            NuevaCitaCommand = new Command(async () => await OnNuevaCita());
+        }
+
+        private async Task LoadCitas()
+        {
+            //ListCitas = await _apiService.GetCitas();
+        }
+
+        private async Task OnNuevaCita()
+        {
+            // Navega a la página de nueva cita
+            await _navigation.PushAsync(new NuevaCitaPage(_apiService));
         }
     }
 }

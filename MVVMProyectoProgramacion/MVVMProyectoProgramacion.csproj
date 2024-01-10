@@ -58,12 +58,6 @@
 	  <MauiXaml Update="Views\CitaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DetailsCitaPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\LoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\NuevaCitaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

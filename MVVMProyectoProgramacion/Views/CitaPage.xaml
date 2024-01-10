@@ -7,9 +7,9 @@
     <VerticalStackLayout BackgroundColor="Black">
 
         <HorizontalStackLayout BackgroundColor="Purple" Padding="10" Background="White">
-            <Image Source="https://marketplace.canva.com/EAFgfLMkJEI/2/0/1600w/canva-logotipo-cl%C3%ADnica-medica-centro-de-salud-geom%C3%A9trico-sencillo-azul-X7d5AiGMhXk.jpg" HeightRequest="50" WidthRequest="100"/>
+            <Image Source="https://marketplace.canva.com/EAFgfLMkJEI/2/0/1600w/canva-logotipo-clínica-medica-centro-de-salud-geométrico-sencillo-azul-X7d5AiGMhXk.jpg" HeightRequest="50" WidthRequest="100"/>
             <Label 
-                x:Name="Correo"
+                x:Name="ClinicaNombre"
                 Text="Clinica Borcelle"
                 FontSize="30"
                 TextColor="Black"
@@ -52,6 +52,6 @@
             HorizontalOptions="Fill"
             BackgroundColor="#f1c40f"
             TextColor="White"
-            Clicked="OnClickNuevaCita"/>
+            Command="{Binding NuevaCitaCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
