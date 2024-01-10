@@ -1,4 +1,5 @@
 ﻿using MVVMProyectoProgramacion.Services;
+using MVVMProyectoProgramacion.Views;
 
 namespace MVVMProyectoProgramacion
 {
@@ -8,7 +9,7 @@ namespace MVVMProyectoProgramacion
         {
             InitializeComponent();
             APIService apiservice = new APIService();
-            MainPage = new NavigationPage(new LoginPage(apiservice));
+            MainPage = new NavigationPage(new CitaPage(apiservice));
         }
     }
 }
