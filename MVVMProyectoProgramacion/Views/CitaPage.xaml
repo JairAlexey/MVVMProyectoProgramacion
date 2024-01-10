@@ -20,7 +20,8 @@
         <ListView x:Name="listaCitas"
                   ItemsSource="{Binding ListCitas}"
                   RowHeight="80"
-                  ItemSelected="OnClickShowDetails">
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                  ItemSelected="{Binding ItemSelectedCommand}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

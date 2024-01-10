@@ -4,7 +4,7 @@ namespace MVVMProyectoProgramacion.Views
 {
     public partial class NuevaCitaPage : ContentPage
     {
-        private APIService _apiService; // Declaración de la variable
+        public APIService _apiService; // Declaración de la variable
 
         public NuevaCitaPage(APIService apiService)
         {

@@ -5,7 +5,7 @@ namespace MVVMProyectoProgramacion.Views
 {
     public partial class CitaPage : ContentPage
     {
-        private APIService _apiService;
+        public APIService _apiService;
 
         public CitaPage(APIService apiService)
         {

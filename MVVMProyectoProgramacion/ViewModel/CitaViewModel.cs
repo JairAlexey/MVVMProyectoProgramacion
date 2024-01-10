@@ -12,8 +12,10 @@ namespace MVVMProyectoProgramacion.ViewModel
         private INavigation _navigation;
         private APIService _apiService;
 
-        public ObservableCollection<Cita> ListCitas { get; private set; }
+        public ObservableCollection<Cita> ListCitas { get; set; }
         public ICommand NuevaCitaCommand { get; }
+        public ICommand ItemSelectedCommand { get; set; }
+        public Cita SelectedItem { get; set; }
 
         public CitaViewModel(INavigation navigation, APIService apiService)
         {
@@ -22,6 +24,7 @@ namespace MVVMProyectoProgramacion.ViewModel
             ListCitas = new ObservableCollection<Cita>();
             LoadCitas();
             NuevaCitaCommand = new Command(async () => await OnNuevaCita());
+            ItemSelectedCommand = new Command<Cita>(OnItemSelected);
         }
 
         private async Task LoadCitas()
@@ -33,6 +36,15 @@ namespace MVVMProyectoProgramacion.ViewModel
         {
             // Navega a la página de nueva cita
             await _navigation.PushAsync(new NuevaCitaPage(_apiService));
+        }
+
+        private void OnItemSelected(Cita selectedCita)
+        {
+            if (selectedCita != null)
+            {
+                // Implementa la lógica de selección aquí
+                // Ejemplo: Navegar a una nueva página de detalles
+            }
         }
     }
 }
